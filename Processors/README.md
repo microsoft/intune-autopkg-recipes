@@ -1,0 +1,7 @@
+This folder contains processors required to execute certain AutoPkg recipes included in this repository.
+
+| Name                | Description                                                                                                                                                                                                 |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DisablePkgRef       | Sets the `active` flag to false for a given `<PkgRef>` tag inside a distribution XML file. This is useful when you want to only select a specific set of component packages to be used during installation. |
+| PkgSigner           | Signs a PKG using the built-in macOS `productsign` command.                                                                                                                                                 |
+| ComponentPkgWrapper | Uses the built-in macOS `productbuild` command to "wrap" a component package into a distribution package. This process optionally lets you sign the new distribution package as well.                       |

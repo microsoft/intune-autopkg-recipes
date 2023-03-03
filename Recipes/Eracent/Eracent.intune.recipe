@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the Eracent clients installer package, and modifies it to work with Microsoft Intune.</string>
+    <key>Comment</key>
+    <string>The Eracent client installer package is shipped as an unsigned component package. This package must be wrapped in a distribution package and signed using a Developer ID Installer certificate (specified using the SIGNING_CERT parameter).</string>
+    <key>Identifier</key>
+    <string>com.github.Microsoft.intune.Eracent</string>
+    <key>Input</key>
+    <dict>
+        <key>SIGNING_CERT</key>
+        <string>Developer ID Installer: Your Company (XXXXXXXXXX)</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>1.0.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.Microsoft.download.Eracent</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.Microsoft.SharedProcessors/ComponentPkgWrapper</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%NAME%.pkg</string>
+                <key>signing_cert</key>
+                <string>%SIGNING_CERT%</string>
+                <key>output_pkg_name</key>
+                <string>%NAME%-Intune.pkg</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
