@@ -34,7 +34,7 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>DisablePkgRef</string>
+            <string>com.github.Microsoft.SharedProcessors/DisablePkgRef</string>
             <key>Arguments</key>
             <dict>
                 <key>input_distribution_path</key>
@@ -70,7 +70,7 @@
         </dict>
         <dict>
             <key>Processor</key>
-            <string>PkgSigner</string>
+            <string>com.github.Microsoft.SharedProcessors/PkgSigner</string>
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>

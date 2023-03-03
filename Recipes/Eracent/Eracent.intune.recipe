@@ -21,7 +21,7 @@
     <array>
         <dict>
             <key>Processor</key>
-            <string>ProductBuildPkg</string>
+            <string>com.github.Microsoft.SharedProcessors/ComponentPkgWrapper</string>
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
