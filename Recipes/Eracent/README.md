@@ -27,7 +27,7 @@ If your installer package is hosted on an internal website, run the recipe with 
 autopkg run com.github.Microsoft.intune.Eracent --key DOWNLOAD_URL="https://yourwebsite.com/path/to/eracent.pkg" --key SIGNING_CERT="<cert common name>"
 ```
 
-Replace the values for `DOWNLOAD_URL` and `SIGNING_CERT` with the full URL to download the PKG and the common name for your developer ID installer certificate respectively. Replace the values for `HOSTNAME` and `SIGNING_CERT` with the hostname for your PaloAlto VPN gateway and the common name for developer ID installer certificate respectively. The common name for your certificate should look something like `Developer ID Installer: Your Company (XXXXXXXXXX)`.
+Replace the values for `DOWNLOAD_URL` and `SIGNING_CERT` with the full URL to download the PKG and the common name for your developer ID installer certificate respectively. The common name for your certificate should look something like `Developer ID Installer: Your Company (XXXXXXXXXX)`.
 
 #### Option 2: Using a Local Copy
 
@@ -37,7 +37,7 @@ Alternatively, you can run the recipe against a local copy of the PKG:
 autopkg run com.github.Microsoft.intune.Eracent --key LOCAL_PKG="/path/to/your/local/eracent.pkg" --key SIGNING_CERT="<cert common name>"
 ```
 
-Replace the values for `LOCAL_PKG` and `SIGNING_CERT` with the local path to your PKG and the common name for your developer ID installer certificate respectively. Replace the values for `HOSTNAME` and `SIGNING_CERT` with the hostname for your PaloAlto VPN gateway and the common name for developer ID installer certificate respectively. The common name for your certificate should look something like `Developer ID Installer: Your Company (XXXXXXXXXX)`.
+Replace the values for `LOCAL_PKG` and `SIGNING_CERT` with the local path to your PKG and the common name for your developer ID installer certificate respectively. The common name for your certificate should look something like `Developer ID Installer: Your Company (XXXXXXXXXX)`.
 
 ### Step 2: Validate the Output
 
