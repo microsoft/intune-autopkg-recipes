@@ -3,68 +3,33 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Modifies the Eracent clients installer pkg to work with Microsoft Intune.</string>
+    <string>Downloads the Eracent clients installer package, and modifies it to work with Microsoft Intune.</string>
+    <key>Comment</key>
+    <string>The Eracent client installer package is shipped as an unsigned component package. This package must be wrapped in a distribution package and signed using a Developer ID Installer certificate (specified using the SIGNING_CERT parameter).</string>
     <key>Identifier</key>
     <string>com.github.Microsoft.intune.Eracent</string>
     <key>Input</key>
     <dict>
-        <key>name</key>
-        <string>MACOSX_intel_ClientsInstaller_1_EPA_EPM_EDA</string>
-        <key>signing_cert</key>
+        <key>SIGNING_CERT</key>
         <string>Developer ID Installer: Your Company (XXXXXXXXXX)</string>
-        <key>download_url</key>
-        <string>https://yourwebsite.com</string>
-        <key>local_pkg</key>
-        <string/>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.6.1</string>
+    <string>1.0.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.Microsoft.download.Eracent</string>
     <key>Process</key>
     <array>
-        <dict>
-            <key>Processor</key>
-            <string>URLDownloader</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%download_url%</string>
-                <key>filename</key>
-                <string>%name%.pkg</string>
-                <key>PKG</key>
-                <string>%local_pkg%</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>EndOfCheckPhase</string>
-        </dict>
-        <!-- <dict>
-            <key>Processor</key>
-            <string>CodeSignatureVerifier</string>
-            <key>Arguments</key>
-            <dict>
-                <key>input_path</key>
-                <string>%pathname%</string>
-                <key>expected_authority_names</key>
-                <array>
-                    <string>Developer ID Installer: Palo Alto Networks (PXPZ95SK77)</string>
-                    <string>Developer ID Certification Authority</string>
-                    <string>Apple Root CA</string>
-                </array>
-            </dict>
-        </dict> -->
-
         <dict>
             <key>Processor</key>
             <string>ProductBuildPkg</string>
             <key>Arguments</key>
             <dict>
                 <key>pkg_path</key>
-                <string>%name%.pkg</string>
+                <string>%NAME%.pkg</string>
                 <key>signing_cert</key>
-                <string>%signing_cert%</string>
+                <string>%SIGNING_CERT%</string>
                 <key>output_pkg_name</key>
-                <string>%name%-Intune.pkg</string>
+                <string>%NAME%-Intune.pkg</string>
             </dict>
         </dict>
     </array>

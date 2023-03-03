@@ -7,7 +7,7 @@
     <key>Comment</key>
     <string>All LOB apps installed as PKGs through MDM must have a valid signature. Use the SIGNING_CERT parameter to specify the common name for your Apple Developer ID Installer certificate to use for signing.</string>
     <key>Identifier</key>
-    <string>com.github.Microsoft.GlobalProtect.intune</string>
+    <string>com.github.Microsoft.intune.GlobalProtect</string>
     <key>Input</key>
     <dict>
         <key>SIGNING_CERT</key>
@@ -16,7 +16,7 @@
     <key>MinimumVersion</key>
     <string>1.0.0</string>
     <key>ParentRecipe</key>
-    <string>com.github.intuneautopkg.download.Code</string>
+    <string>com.github.Microsoft.download.GlobalProtect</string>
     <key>Process</key>
     <array>
         <dict>

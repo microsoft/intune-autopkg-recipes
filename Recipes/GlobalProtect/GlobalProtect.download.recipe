@@ -7,7 +7,7 @@
     <key>Comment</key>
     <string>Use HOSTNAME var to specify your PaloAlto VPN Gateway. For PLATFORM use either mac or win</string>
     <key>Identifier</key>
-    <string>com.github.Microsoft.GlobalProtect.download</string>
+    <string>com.github.Microsoft.download.GlobalProtect</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
