@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads latest version of GlobalProtect VPN Client from YOUR Palo Alto. It will then modify the pkg to work with Microsoft Intune.</string>
+    <key>Comment</key>
+    <string>All LOB apps installed as PKGs through MDM must have a valid signature. Use the SIGNING_CERT parameter to specify the common name for your Apple Developer ID Installer certificate to use for signing.</string>
+    <key>Identifier</key>
+    <string>com.github.Microsoft.GlobalProtect.intune</string>
+    <key>Input</key>
+    <dict>
+        <key>SIGNING_CERT</key>
+        <string>Developer ID Installer: Your Company (XXXXXXXXXX)</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>1.0.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.intuneautopkg.download.Code</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>FlatPkgUnpacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>flat_pkg_path</key>
+                <string>%pathname%</string>
+                <key>destination_path</key>
+                <string>%NAME%_expanded</string>
+                <key>purge_destination</key>
+                <true />
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>DisablePkgRef</string>
+            <key>Arguments</key>
+            <dict>
+                <key>input_distribution_path</key>
+                <string>%NAME%_expanded/Distribution</string>
+                <key>output_distribution_path</key>
+                <string>%NAME%_expanded/Distribution</string>
+                <key>bundle_id</key>
+                <string>com.paloaltonetworks.globalprotect.uninstall.pkg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>FlatPkgPacker</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_flatpkg_dir</key>
+                <string>%NAME%_expanded</string>
+                <key>destination_pkg</key>
+                <string>%NAME%Intune.pkg</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PathDeleter</string>
+            <key>Arguments</key>
+            <dict>
+                <key>path_list</key>
+                <array>
+                    <string>%NAME%_expanded</string>
+                    <string>%NAME%Intune-unsigned.pkg</string>
+                </array>
+            </dict>
+        </dict>
+        <dict>
+            <key>Processor</key>
+            <string>PkgSigner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%NAME%Intune.pkg</string>
+                <key>signing_cert</key>
+                <string>%SIGNING_CERT%</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
