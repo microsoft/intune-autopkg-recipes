@@ -23,7 +23,7 @@ Run the following command in Terminal:
 autopkg run com.github.Microsoft.intune.GlobalProtect --key HOSTNAME="<yourvpngateway.com>" --key SIGNING_CERT="<cert common name>"
 ```
 
-Replace `<yourvpngateway.com>` with the hostname for your PaloAlto VPN gateway, and replace `<cert common name>` with the common name for your developer ID instller certificate (this should look something like `Developer ID Installer: Your Company (XXXXXXXXXX)`).
+Replace the values for `HOSTNAME` and `SIGNING_CERT` with the hostname for your PaloAlto VPN gateway and the common name for developer ID installer certificate respectively. The common name for your certificate should look something like `Developer ID Installer: Your Company (XXXXXXXXXX)`.
 
 ### Step 2: Validate the Output
 
