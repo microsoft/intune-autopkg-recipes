@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Description</key>
+    <string>Downloads the ZScaler client's installer package, and modifies it to work with Microsoft Intune.</string>
+    <key>Comment</key>
+    <string>The Zscaler client installer package is shipped as an unsigned package. This package must be signed using a Developer ID Installer certificate (specified using the SIGNING_CERT parameter).</string>
+    <key>Identifier</key>
+    <string>com.github.Microsoft.intune.Zscaler</string>
+    <key>Input</key>
+    <dict>
+        <key>SIGNING_CERT</key>
+        <string>Developer ID Installer: Your Company (XXXXXXXXXX)</string>
+    </dict>
+    <key>MinimumVersion</key>
+    <string>1.0.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.Microsoft.download.Zscaler</string>
+    <key>Process</key>
+    <array>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.Microsoft.SharedProcessors/PkgSigner</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pkg_path</key>
+                <string>%LOCAL_PKG%</string>
+                <key>signing_cert</key>
+                <string>%SIGNING_CERT%</string>
+            </dict>
+        </dict>
+    </array>
+</dict>
+</plist>
