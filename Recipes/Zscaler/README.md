@@ -36,14 +36,14 @@ Note: if you are getting the latest version, you can likely upload directly to I
 Alternatively, you can run the recipe against a local copy of the PKG:
 
 ```zsh
-autopkg run com.github.Microsoft.intune.Zscaler --key LOCAL_PKG="/path/to/your/local/eracent.pkg" --key SIGNING_CERT="<cert common name>"
+autopkg run com.github.Microsoft.intune.Zscaler --key LOCAL_PKG="/path/to/your/local/zscaler.pkg" --key SIGNING_CERT="<cert common name>"
 ```
 
 Replace the values for `PKG_PATH` and `SIGNING_CERT` with the local path to your PKG and the common name for your developer ID installer certificate respectively. The common name for your certificate should look something like `Developer ID Installer: Your Company (XXXXXXXXXX)`.
 
 ### Step 2: Validate the Output
 
-After running the command, you should see a `Zscaler-osx-3.2.5.5-installer.pkg` file in your current working directory, which you can use to distribute using Microsoft Intune. You can verify that the file was signed correctly using an app such as [Suspicious Package](https://mothersruin.com/software/SuspiciousPackage/) or by running the command `pkgutil --check-signature ./MZscaler-osx-3.2.5.5-installer.pkg`.
+After running the command, you should see a `Zscaler-osx-{version}-installer.pkg` file in your current working directory, which you can use to distribute using Microsoft Intune. You can verify that the file was signed correctly using an app such as [Suspicious Package](https://mothersruin.com/software/SuspiciousPackage/) or by running the command `pkgutil --check-signature ./Zscaler-osx-{version}-installer.pkg`.
 
 ### Step 3: Upload to Microsoft Intune
 

@@ -9,7 +9,7 @@
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>MACOSX_intel_ClientsInstaller_1_EPA_EPM_EDA</string>
+        <string>Zscaler-osx-{version}-installer</string>
         <key>DOWNLOAD_URL</key>
         <string>https://yourwebsite.com</string>
         <key>LOCAL_PKG</key>
